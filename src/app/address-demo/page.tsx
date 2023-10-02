@@ -1,10 +1,20 @@
 "use client";
 
 import { useSphere, PaymentFormFields } from "@spherelabs/react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
+import dynamic from "next/dynamic";
 
 require("@spherelabs/react/dist/esm/styles.css");
+
+const WalletMultiButton = dynamic(
+  () =>
+    import("@solana/wallet-adapter-react-ui").then(
+      ({ WalletMultiButton }) => WalletMultiButton
+    ),
+  {
+    ssr: false,
+  }
+);
 
 export const styles = {
   main: "flex min-h-screen flex-col gap-y-4 p-24 items-center",
