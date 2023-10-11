@@ -17,11 +17,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={[]} autoConnect>
-        <WalletModalProvider>
-          <SphereProvider paymentLinkId="paymentLink_9fa98f6bfb684c429db94eecfd2cd208">
-            {children}
-          </SphereProvider>
-        </WalletModalProvider>
+        <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
